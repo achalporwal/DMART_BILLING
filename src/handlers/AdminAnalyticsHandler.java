@@ -200,7 +200,6 @@ public class AdminAnalyticsHandler implements HttpHandler {
         sb.append("]");
         return sb.toString();
     }
-
     private String getDeadStockJson() {
         List<Product> products = productRepository.findDeadStockProducts();
         StringBuilder sb = new StringBuilder("[");
