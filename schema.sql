@@ -32,9 +32,9 @@ CREATE TABLE customers (
 CREATE TABLE products (
     product_id VARCHAR(50) PRIMARY KEY,
     product_name VARCHAR(150) NOT NULL,
-    mrp DECIMAL(10, 2) NOT NULL,            -- Maximum Retail Price
-    prp DECIMAL(10, 2) NOT NULL,            -- Purchase Retail Price (D-Mart Price)
-    gst_percentage DECIMAL(5, 2) NOT NULL,   -- GST percentage (e.g. 5.00, 12.00, 18.00)
+    mrp DECIMAL(10, 2) NOT NULL,           
+    prp DECIMAL(10, 2) NOT NULL,           
+    gst_percentage DECIMAL(5, 2) NOT NULL,  
     available_quantity INT NOT NULL DEFAULT 0,
     alert_threshold INT NOT NULL DEFAULT 10,
     held_quantity INT NOT NULL DEFAULT 0
