@@ -1,5 +1,3 @@
-// D-Mart Billing Client Core Application Logic
-
 class DMartBillingApp {
     constructor(userId, userRole) {
         this.userId = userId;
@@ -9,24 +7,22 @@ class DMartBillingApp {
         this.currentCustomerId = '';
     }
 
-    // ==========================================
-    // BILLING PAGE INITIALIZATION & LOGIC
-    // ==========================================
+   
     initBillingPage() {
-        // Setup Date inputs and values
+       
         const mobileInput = document.getElementById('custMobile');
         const scanInput = document.getElementById('scanProductId');
         const scanBtn = document.getElementById('scanBtn');
         const clearBtn = document.getElementById('clearBtn');
         const checkoutBtn = document.getElementById('checkoutBtn');
         
-        // Modal buttons
+    
         const receiptModal = document.getElementById('receiptModal');
         const closeModalBtn = document.getElementById('closeModalBtn');
         const closeModalBtn2 = document.getElementById('closeModalBtn2');
         const printInvoiceBtn = document.getElementById('printInvoiceBtn');
 
-        // 1. Customer Auto-Populate Mobile Listener
+     
         mobileInput.addEventListener('input', () => {
             const val = mobileInput.value.trim();
             if (val.length === 10 && /^\d+$/.test(val)) {
@@ -34,7 +30,7 @@ class DMartBillingApp {
             }
         });
 
-        // Location Dropdown suggestions for area name-city name-state name matching any character
+      
         const locInput = document.getElementById('custLoc');
         const citiesDatalist = document.getElementById('citiesDatalist');
         if (locInput && citiesDatalist) {
@@ -79,7 +75,7 @@ class DMartBillingApp {
             });
         }
 
-        // Scanner Autocomplete setup
+       
         const dropdown = document.getElementById('scannerDropdown');
         if (scanInput && dropdown) {
             let catalog = [];
@@ -135,8 +131,6 @@ class DMartBillingApp {
                 }, 200);
             });
         }
-
-        // 2. Scan Item Listeners (Button & Enter Key)
         scanBtn.addEventListener('click', () => this.scanItem());
         scanInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
@@ -145,29 +139,22 @@ class DMartBillingApp {
             }
         });
 
-        // 3. Billing Action Buttons
         clearBtn.addEventListener('click', () => this.clearCart());
         checkoutBtn.addEventListener('click', () => this.generateInvoice());
-
-        // 4. Modal Interactions
+   
         const closeModal = () => receiptModal.classList.remove('active');
         closeModalBtn.addEventListener('click', closeModal);
         closeModalBtn2.addEventListener('click', closeModal);
         printInvoiceBtn.addEventListener('click', () => window.print());
-
-        // 5. Search Invoice Listener
         document.getElementById('searchInvoiceBtn').addEventListener('click', () => {
             const billId = document.getElementById('searchInvoiceId').value.trim();
             if (billId) this.searchAndShowInvoice(billId);
         });
-
-        // 6. Payment Mode and Cash Change Calculator setup
         const paymentMode = document.getElementById('paymentMode');
         const cashCalcBlock = document.getElementById('cashCalculatorBlock');
         const cashReceivedInput = document.getElementById('cashReceived');
         const changeReturnedEl = document.getElementById('changeReturned');
         const updateCustBtn = document.getElementById('updateCustBtn');
-
         if (paymentMode && cashCalcBlock) {
             paymentMode.addEventListener('change', () => {
                 if (paymentMode.value === 'CASH') {
@@ -179,7 +166,6 @@ class DMartBillingApp {
                 }
             });
         }
-
         this.updateChangeReturned = () => {
             if (cashReceivedInput && changeReturnedEl) {
                 const cash = parseFloat(cashReceivedInput.value) || 0;
@@ -188,23 +174,15 @@ class DMartBillingApp {
                 changeReturnedEl.innerText = `₹${change.toFixed(2)}`;
             }
         };
-
         if (cashReceivedInput) {
             cashReceivedInput.addEventListener('input', this.updateChangeReturned);
         }
-
         if (updateCustBtn) {
             updateCustBtn.addEventListener('click', () => this.updateCustomerProfile());
         }
-
-        // 7. Initial Session Loads
-        this.loadSessionLogs();
-        
-        // Restore Draft
-        this.checkAndRestoreDraft();
-        
-        // Add beforeunload save draft sync
-        window.addEventListener('beforeunload', () => {
+this.loadSessionLogs();
+               this.checkAndRestoreDraft();
+                window.addEventListener('beforeunload', () => {
             if (this.cart.length > 0) {
                 const draftPayload = this.cart.map(item => ({
                     productId: item.product.productId,
@@ -225,7 +203,6 @@ class DMartBillingApp {
             }
         });
 
-        // Heartbeat to poll catalog every 7 seconds to sync other cashiers' locks & updates
         setInterval(async () => {
             if (document.activeElement !== scanInput) {
                 // If scanner input isn't active, refresh catalog for scanner in background
@@ -254,12 +231,11 @@ class DMartBillingApp {
                 document.getElementById('custName').value = data.customer.name;
                 document.getElementById('custAge').value = data.customer.age;
                 document.getElementById('custLoc').value = data.customer.location;
-                // Keep fields editable so cashier can update details
+               
                 document.getElementById('custName').readOnly = false;
                 document.getElementById('custAge').readOnly = false;
                 document.getElementById('custLoc').readOnly = false;
-                
-                // Show Customer Purchasing History Block
+               
                 const histSec = document.getElementById('custHistorySection');
                 if (histSec) {
                     histSec.style.display = 'block';
@@ -322,8 +298,7 @@ class DMartBillingApp {
             return;
         }
 
-        // Age validation
-        const ageVal = parseFloat(ageStr);
+           const ageVal = parseFloat(ageStr);
         if (isNaN(ageVal) || ageVal <= 0 || ageVal > 150 || ageVal % 1 !== 0) {
             this.showAlert('danger', 'Age must be a positive integer, not a decimal, and not more than 150 years.');
             return;
@@ -438,7 +413,6 @@ class DMartBillingApp {
         const histSec = document.getElementById('custHistorySection');
         if (histSec) histSec.style.display = 'none';
 
-        // Clear Draft on Server
         this.saveDraftToServer();
 
         this.showAlert('info', 'Cart cleared successfully.');
@@ -470,18 +444,16 @@ class DMartBillingApp {
             const p = item.product;
             const qty = item.quantity;
             
-            // GST-inclusive calculations (Offer price PRP is inclusive of GST)
             const itemMrp = p.mrp * qty;
             const itemTotal = p.prp * qty; // final customer price is exactly PRP * Qty
             
             const gstPercentage = p.gstPercentage || 0;
-            // taxableValue = itemTotal / (1 + (gstPercentage / 100))
+          
             const itemTaxable = itemTotal / (1 + (gstPercentage / 100));
             const totalGst = itemTotal - itemTaxable;
             const itemCgst = totalGst / 2;
             const itemSgst = totalGst / 2;
-            
-            // Discount/Savings is the difference between MRP value and actual price paid
+   
             const itemDiscount = itemMrp - itemTotal;
 
             subMrp += itemMrp;
@@ -515,10 +487,9 @@ class DMartBillingApp {
         });
 
         this.updateTotalsUI(subMrp, subTaxable, subCgst, subSgst, subDiscount, subTotal);
-        
-        // Sync Cart Locks with Server
+       
         this.syncCartLock();
-        // Save current cart draft to server
+      
         this.saveDraftToServer();
     }
 
@@ -550,7 +521,6 @@ class DMartBillingApp {
             return;
         }
 
-        // Age validation
         const ageVal = parseFloat(ageStr);
         if (isNaN(ageVal) || ageVal <= 0 || ageVal > 150 || ageVal % 1 !== 0) {
             this.showAlert('danger', 'Age must be a positive integer, not a decimal, and not more than 150 years.');
