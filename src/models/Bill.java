@@ -6,178 +6,177 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Bill {
-    private String billId;
-    private String customerId;
-    private String cashierId;
-    private LocalDateTime billDate;
-    private BigDecimal taxableValue;
-    private BigDecimal cgst;
-    private BigDecimal sgst;
-    private BigDecimal discount;
-    private BigDecimal finalAmount;
-    private String paymentMode;
-    private BigDecimal cashReceived = BigDecimal.ZERO;
-    private BigDecimal cashReturned = BigDecimal.ZERO;
-    private String status = "COMPLETED";
-    private List<BillItem> items = new ArrayList<>();
-    
-    // Customer details loaded at runtime
-    private String customerName;
-    private String customerMobile;
-    private String customerLocation;
+private String billId;
+private String customerId;
+private String cashierId;
+private LocalDateTime billDate;
+private BigDecimal taxableValue;
+private BigDecimal cgst;
+private BigDecimal sgst;
+private BigDecimal discount;
+private BigDecimal finalAmount;
+private String paymentMode;
+private BigDecimal cashReceived = BigDecimal.ZERO;
+private BigDecimal cashReturned = BigDecimal.ZERO;
+private String status = "COMPLETED";
+private List<BillItem> items = new ArrayList<>();
 
-    public Bill() {}
+private String customerName;
+private String customerMobile;
+private String customerLocation;
 
-    public Bill(String billId, String customerId, String cashierId, LocalDateTime billDate, 
-                BigDecimal taxableValue, BigDecimal cgst, BigDecimal sgst, BigDecimal discount, BigDecimal finalAmount) {
-        this.billId = billId;
-        this.customerId = customerId;
-        this.cashierId = cashierId;
-        this.billDate = billDate;
-        this.taxableValue = taxableValue;
-        this.cgst = cgst;
-        this.sgst = sgst;
-        this.discount = discount;
-        this.finalAmount = finalAmount;
-    }
+public Bill() {}
 
-    public String getBillId() {
-        return billId;
-    }
+public Bill(String billId, String customerId, String cashierId, LocalDateTime billDate, 
+BigDecimal taxableValue, BigDecimal cgst, BigDecimal sgst, BigDecimal discount, BigDecimal finalAmount) {
+this.billId = billId;
+this.customerId = customerId;
+this.cashierId = cashierId;
+this.billDate = billDate;
+this.taxableValue = taxableValue;
+this.cgst = cgst;
+this.sgst = sgst;
+this.discount = discount;
+this.finalAmount = finalAmount;
+}
 
-    public void setBillId(String billId) {
-        this.billId = billId;
-    }
+public String getBillId() {
+return billId;
+}
 
-    public String getCustomerId() {
-        return customerId;
-    }
+public void setBillId(String billId) {
+this.billId = billId;
+}
 
-    public void setCustomerId(String customerId) {
-        this.customerId = customerId;
-    }
+public String getCustomerId() {
+return customerId;
+}
 
-    public String getCashierId() {
-        return cashierId;
-    }
+public void setCustomerId(String customerId) {
+this.customerId = customerId;
+}
 
-    public void setCashierId(String cashierId) {
-        this.cashierId = cashierId;
-    }
+public String getCashierId() {
+return cashierId;
+}
 
-    public LocalDateTime getBillDate() {
-        return billDate;
-    }
+public void setCashierId(String cashierId) {
+this.cashierId = cashierId;
+}
 
-    public void setBillDate(LocalDateTime billDate) {
-        this.billDate = billDate;
-    }
+public LocalDateTime getBillDate() {
+return billDate;
+}
 
-    public BigDecimal getTaxableValue() {
-        return taxableValue;
-    }
+public void setBillDate(LocalDateTime billDate) {
+this.billDate = billDate;
+}
 
-    public void setTaxableValue(BigDecimal taxableValue) {
-        this.taxableValue = taxableValue;
-    }
+public BigDecimal getTaxableValue() {
+return taxableValue;
+}
 
-    public BigDecimal getCgst() {
-        return cgst;
-    }
+public void setTaxableValue(BigDecimal taxableValue) {
+this.taxableValue = taxableValue;
+}
 
-    public void setCgst(BigDecimal cgst) {
-        this.cgst = cgst;
-    }
+public BigDecimal getCgst() {
+return cgst;
+}
 
-    public BigDecimal getSgst() {
-        return sgst;
-    }
+public void setCgst(BigDecimal cgst) {
+this.cgst = cgst;
+}
 
-    public void setSgst(BigDecimal sgst) {
-        this.sgst = sgst;
-    }
+public BigDecimal getSgst() {
+return sgst;
+}
 
-    public BigDecimal getDiscount() {
-        return discount;
-    }
+public void setSgst(BigDecimal sgst) {
+this.sgst = sgst;
+}
 
-    public void setDiscount(BigDecimal discount) {
-        this.discount = discount;
-    }
+public BigDecimal getDiscount() {
+return discount;
+}
 
-    public BigDecimal getFinalAmount() {
-        return finalAmount;
-    }
+public void setDiscount(BigDecimal discount) {
+this.discount = discount;
+}
 
-    public void setFinalAmount(BigDecimal finalAmount) {
-        this.finalAmount = finalAmount;
-    }
+public BigDecimal getFinalAmount() {
+return finalAmount;
+}
 
-    public List<BillItem> getItems() {
-        return items;
-    }
+public void setFinalAmount(BigDecimal finalAmount) {
+this.finalAmount = finalAmount;
+}
 
-    public void setItems(List<BillItem> items) {
-        this.items = items;
-    }
+public List<BillItem> getItems() {
+return items;
+}
 
-    public void addItem(BillItem item) {
-        this.items.add(item);
-    }
+public void setItems(List<BillItem> items) {
+this.items = items;
+}
 
-    public String getCustomerName() {
-        return customerName;
-    }
+public void addItem(BillItem item) {
+this.items.add(item);
+}
 
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
+public String getCustomerName() {
+return customerName;
+}
 
-    public String getCustomerMobile() {
-        return customerMobile;
-    }
+public void setCustomerName(String customerName) {
+this.customerName = customerName;
+}
 
-    public void setCustomerMobile(String customerMobile) {
-        this.customerMobile = customerMobile;
-    }
+public String getCustomerMobile() {
+return customerMobile;
+}
 
-    public String getCustomerLocation() {
-        return customerLocation;
-    }
+public void setCustomerMobile(String customerMobile) {
+this.customerMobile = customerMobile;
+}
 
-    public void setCustomerLocation(String customerLocation) {
-        this.customerLocation = customerLocation;
-    }
+public String getCustomerLocation() {
+return customerLocation;
+}
 
-    public String getPaymentMode() {
-        return paymentMode;
-    }
+public void setCustomerLocation(String customerLocation) {
+this.customerLocation = customerLocation;
+}
 
-    public void setPaymentMode(String paymentMode) {
-        this.paymentMode = paymentMode;
-    }
+public String getPaymentMode() {
+return paymentMode;
+}
 
-    public BigDecimal getCashReceived() {
-        return cashReceived;
-    }
+public void setPaymentMode(String paymentMode) {
+this.paymentMode = paymentMode;
+}
 
-    public void setCashReceived(BigDecimal cashReceived) {
-        this.cashReceived = cashReceived;
-    }
+public BigDecimal getCashReceived() {
+return cashReceived;
+}
 
-    public BigDecimal getCashReturned() {
-        return cashReturned;
-    }
+public void setCashReceived(BigDecimal cashReceived) {
+this.cashReceived = cashReceived;
+}
 
-    public void setCashReturned(BigDecimal cashReturned) {
-        this.cashReturned = cashReturned;
-    }
+public BigDecimal getCashReturned() {
+return cashReturned;
+}
 
-    public String getStatus() {
-        return status;
-    }
+public void setCashReturned(BigDecimal cashReturned) {
+this.cashReturned = cashReturned;
+}
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
+public String getStatus() {
+return status;
+}
+
+public void setStatus(String status) {
+this.status = status;
+}
 }
