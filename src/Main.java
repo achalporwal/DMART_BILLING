@@ -1,6 +1,7 @@
 import models.Customer;
 import models.Product;
 import models.User;
+import models.BillItem;
 import java.math.BigDecimal;
 public class Main
 {
@@ -26,5 +27,13 @@ System.out.println("Name :" +cashier.getName());
 System.out.println("Role :" +cashier.getRole());
 System.out.println("Status :" +cashier.isActive());
 System.out.println("User OK");
+
+BillItem item1 = new BillItem("ITEM-001", "BILL-1001", "PRODUCT-101", 2, new BigDecimal("250.00"), new BigDecimal("230.00"), new BigDecimal("438.10"), new BigDecimal("10.95"), new BigDecimal("10.95"), new BigDecimal("40.00"), new BigDecimal("460.00"));
+item1.setProductName("Atta 5Kg");
+System.out.println("Product: " +item1.getProductName());
+System.out.println("Quantity: " +item1.getQuantity());
+System.out.println("Total Amount: " +item1.getFinalAmount());
+System.out.println("BILL ITEM OK");
+
 }
 }
