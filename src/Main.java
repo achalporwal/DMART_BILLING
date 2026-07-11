@@ -1,5 +1,7 @@
 import models.Customer;
 import models.Product;
+import models.User;
+import java.math.BigDecimal;
 public class Main
 {
 public static void main(String[] args)
@@ -18,5 +20,11 @@ System.out.println("Dmart Price: Rs " + product.getPrp());
 System.out.println("Stock Available: " + product.getAvailableQuantity());
 System.out.println("Low Stock Alert At: " + product.getAlertThreshold());
 System.out.println("PRODUCT OK");
+
+User cashier = new User("User-001", "Amay", "Amay123", "Cashier1", true);
+System.out.println("Name :" +cashier.getName());
+System.out.println("Role :" +cashier.getRole());
+System.out.println("Status :" +cashier.isActive());
+System.out.println("User OK");
 }
 }
