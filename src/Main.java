@@ -2,6 +2,7 @@ import models.Customer;
 import models.Product;
 import models.User;
 import models.BillItem;
+import models.Bill;
 import java.math.BigDecimal;
 public class Main
 {
@@ -34,6 +35,16 @@ System.out.println("Product: " +item1.getProductName());
 System.out.println("Quantity: " +item1.getQuantity());
 System.out.println("Total Amount: " +item1.getFinalAmount());
 System.out.println("BILL ITEM OK");
+
+Bill bill = new Bill();
+bill.setBillId("Bill-1001");
+bill.setCustomerName("Achal");
+bill.setCashierId(cashier.getUserId());
+bill.addItem(item1);
+bill.setFinalAmount(new BigDecimal("460.00"));
+System.out.println("Customer Name: " +bill.getCustomerName());
+System.out.println("Cahier ID: " +bill.getCashierId());
+System.out.println("Bill OK");
 
 }
 }
