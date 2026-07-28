@@ -8,3 +8,11 @@ CREATE TABLE users (
     role VARCHAR(20),
     is_active BOOLEAN
 );
+
+CREATE TABLE customers (
+    customer_id VARCHAR(50) PRIMARY KEY,
+    name VARCHAR(100),
+    mobile_number VARCHAR(15) UNIQUE,
+    age INT,
+    location VARCHAR(100)
+);
