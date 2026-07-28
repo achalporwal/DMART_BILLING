@@ -69,3 +69,5 @@ CREATE TABLE bill_items (
 
 INSERT INTO users (user_id, name, password, role, is_active) 
 VALUES ('USR-001', 'Achal Admin', 'admin123', 'ADMIN', true);
+
+Show tables;
