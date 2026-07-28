@@ -4,6 +4,8 @@ import models.User;
 import models.BillItem;
 import models.Bill;
 import java.math.BigDecimal;
+import db.DatabaseConfig;
+import java.sql.Connection;
 public class Main
 {
 public static void main(String[] args)
@@ -46,5 +48,20 @@ System.out.println("Customer Name: " +bill.getCustomerName());
 System.out.println("Cahier ID: " +bill.getCashierId());
 System.out.println("Bill OK");
 
+System.out.println("Checking Database Connection\n");
+try
+{
+Connection conn = DatabaseConfig.getConnection();
+if (conn != null) 
+{
+System.out.println("Java successfully connected");
+conn.close();
+}
+} 
+catch(Exception e) 
+{
+System.out.println("Connection failed");
+System.out.println("Reason: " + e.getMessage());
+}
 }
 }
