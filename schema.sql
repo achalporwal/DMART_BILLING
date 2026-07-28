@@ -1,3 +1,4 @@
+DROP DATABASE dmart_db;
 CREATE DATABASE dmart_db;
 USE dmart_db;
 
