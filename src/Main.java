@@ -6,6 +6,7 @@ import models.Bill;
 import java.math.BigDecimal;
 import db.DatabaseConfig;
 import java.sql.Connection;
+import repositories.CustomerRepository;
 public class Main
 {
 public static void main(String[] args)
@@ -63,5 +64,32 @@ catch(Exception e)
 System.out.println("Connection failed");
 System.out.println("Reason: " + e.getMessage());
 }
+
+System.out.println("Testing Database Repositories\n");
+CustomerRepository customerRepo = new CustomerRepository();
+Customer newCustomer = new Customer("CUST-1001", "Rahul Sharma", "9876543210", 25, "Ujjain");
+System.out.println("Customer Saved.");
+boolean isSaved = customerRepo.saveCustomer(newCustomer);
+if (isSaved)
+{
+System.out.println("Customer saved in MySQL database.");
+}
+else
+{
+System.out.println("Customer not saved/already exists");
+}
+System.out.println("\nFetching customer from Database.");
+Customer dbCustomer=customerRepo.getCustomerByMobile("9876543210");
+if (dbCustomer != null)
+{
+System.out.println("Customer found");
+System.out.println("Name: " + dbCustomer.getName());
+System.out.println("ID: " + dbCustomer.getCustomerId());
+}
+else
+{
+System.out.println("Customer Not found");
+}
+
 }
 }
