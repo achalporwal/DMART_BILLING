@@ -27,3 +27,24 @@ CREATE TABLE products (
     alert_threshold INT DEFAULT 10,
     held_quantity INT DEFAULT 0
 );
+
+CREATE TABLE bills (
+    bill_id VARCHAR(50) PRIMARY KEY,
+    customer_id VARCHAR(50),
+    cashier_id VARCHAR(50),
+    bill_date DATETIME,
+    payment_mode VARCHAR(20),
+    taxable_value DECIMAL(10,2),
+    cgst DECIMAL(10,2),
+    sgst DECIMAL(10,2),
+    discount DECIMAL(10,2),
+    final_amount DECIMAL(10,2),
+    cash_received DECIMAL(10,2),
+    cash_returned DECIMAL(10,2),
+    status VARCHAR(20),
+    customer_name VARCHAR(100),
+    customer_mobile VARCHAR(15),
+    customer_location VARCHAR(100),
+    FOREIGN KEY (cashier_id) REFERENCES users(user_id),
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+);
