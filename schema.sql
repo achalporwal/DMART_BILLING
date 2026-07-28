@@ -48,3 +48,21 @@ CREATE TABLE bills (
     FOREIGN KEY (cashier_id) REFERENCES users(user_id),
     FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
 );
+
+CREATE TABLE bill_items (
+    item_id VARCHAR(50) PRIMARY KEY,
+    bill_id VARCHAR(50),
+    product_id VARCHAR(50),
+    product_name VARCHAR(100),
+    quantity INT,
+    mrp DECIMAL(10,2),
+    prp DECIMAL(10,2),
+    taxable_value DECIMAL(10,2),
+    cgst DECIMAL(10,2),
+    sgst DECIMAL(10,2),
+    discount DECIMAL(10,2),
+    final_amount DECIMAL(10,2),
+    FOREIGN KEY (bill_id) REFERENCES bills(bill_id),
+    FOREIGN KEY (product_id) REFERENCES products(product_id)
+);
+
