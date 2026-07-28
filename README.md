@@ -1,9 +1,7 @@
 For compile
-<<<<<<< HEAD
-javac src/models/\**.java*  src/repositories/\**.java src/db/\**.java src/Main.java
-=======
+
 javac src/models/*.java  src/repositories/*.java src/db/*.java src/Main.java
->>>>>>> a8f686d9b91eba1f86236ac1599451f1b6e1e812
+
 
 For run
 java -cp ".;mysql-connector-j-8.4.0.jar;src" Main
