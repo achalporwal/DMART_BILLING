@@ -16,3 +16,14 @@ CREATE TABLE customers (
     age INT,
     location VARCHAR(100)
 );
+
+CREATE TABLE products (
+    product_id VARCHAR(50) PRIMARY KEY,
+    product_name VARCHAR(100),
+    mrp DECIMAL(10,2),
+    prp DECIMAL(10,2),
+    gst_percentage DECIMAL(5,2),
+    available_quantity INT,
+    alert_threshold INT DEFAULT 10,
+    held_quantity INT DEFAULT 0
+);
