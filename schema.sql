@@ -66,3 +66,6 @@ CREATE TABLE bill_items (
     FOREIGN KEY (product_id) REFERENCES products(product_id)
 );
 
+
+INSERT INTO users (user_id, name, password, role, is_active) 
+VALUES ('USR-001', 'Achal Admin', 'admin123', 'ADMIN', true);
