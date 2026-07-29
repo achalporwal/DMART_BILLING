@@ -7,6 +7,8 @@ import java.math.BigDecimal;
 import db.DatabaseConfig;
 import java.sql.Connection;
 import repositories.CustomerRepository;
+import repositories.ProductRepository;
+
 public class Main
 {
 public static void main(String[] args)
@@ -90,6 +92,35 @@ else
 {
 System.out.println("Customer Not found");
 }
+
+System.out.println("\nTesting Product Repository...");
+ProductRepository productRepo = new ProductRepository();
+boolean isProdSaved = productRepo.saveProduct(product);
+if(isProdSaved) 
+{
+System.out.println("Product 'Atta 5kg' saved to Database!");
+}
+else
+{
+System.out.println("Product not saved/already exists");
+}
+System.out.println("\nFetching product from Database by ID...");
+Product dbProduct = productRepo.getProductById("PRODUCT-101");
+if (dbProduct != null)
+{
+System.out.println("Product found in DB.");
+System.out.println("Scanned Name: " + dbProduct.getProductName());
+System.out.println("Scanned Dmart Price: Rs " + dbProduct.getPrp());
+System.out.println("Current Stock: " + dbProduct.getAvailableQuantity());
+}
+else
+{
+System.out.println("Product not found.");
+}
+
+
+
+
 
 }
 }

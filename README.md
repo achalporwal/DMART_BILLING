@@ -32,7 +32,7 @@ Folder: src/repositories/
 
 1\.	CustomerRepository.java: Completed
 
-2\.	ProductRepository.java: Under Production
+2\.	ProductRepository.java: Completed
 
 
 
