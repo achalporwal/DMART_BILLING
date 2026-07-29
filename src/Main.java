@@ -8,6 +8,7 @@ import db.DatabaseConfig;
 import java.sql.Connection;
 import repositories.CustomerRepository;
 import repositories.ProductRepository;
+import repositories.UserRepository;
 
 public class Main
 {
@@ -117,6 +118,28 @@ else
 {
 System.out.println("Product not found.");
 }
+
+System.out.println("Billing System: User Repository Test");
+UserRepository userRepo = new UserRepository();
+System.out.println("Checking database connectivity\n");
+String testUserId = "USR-001"; 
+String testPassword = "admin123";
+System.out.println("Trying to login with ID: " + testUserId);
+User loggedInUser = userRepo.authenticateUser(testUserId, testPassword);
+if (loggedInUser != null)
+{
+System.out.println("Login SUCCESS");
+System.out.println("Welcome, " + loggedInUser.getName() + "!");
+System.out.println("Your Role is: " + loggedInUser.getRole());
+}
+else
+{
+System.out.println("Login FAILED. User not exists or password is not correct.");
+}
+
+
+
+
 
 
 
