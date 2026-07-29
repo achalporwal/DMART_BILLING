@@ -9,6 +9,9 @@ import java.sql.Connection;
 import repositories.CustomerRepository;
 import repositories.ProductRepository;
 import repositories.UserRepository;
+import repositories.BillRepository;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main
 {
@@ -137,10 +140,26 @@ else
 System.out.println("Login FAILED. User not exists or password is not correct.");
 }
 
-
-
-
-
+System.out.println("Billing System: Bill Repository Test");
+BillItem dummyItem1 = new BillItem("ITM001", "BILL001", "PRODUCT-101", 2, new BigDecimal("250.00"), new BigDecimal("250.00"), new BigDecimal("500.00"),new BigDecimal("0.00"), new BigDecimal("0.00"), new BigDecimal("0.00"), new BigDecimal("500.00"));
+Bill dummyBill = new Bill();
+dummyBill.setBillId("BILL001");
+dummyBill.setCustomerName("Rahul Kumar");
+dummyBill.setCashierId("USR-001");
+dummyBill.addItem(dummyItem1);
+dummyBill.setFinalAmount(new BigDecimal("650.00"));
+BillRepository billRepo = new BillRepository();
+System.out.println("Trying to save bill in Database...");
+boolean isBillSaved = billRepo.saveCompleteBill(dummyBill);
+if (isBillSaved) {
+System.out.println("SUCCESS: Bill and items successfully saved in database");
+System.out.println("You can check 'bills' and 'bill_items' tables in database");
+}
+else
+{
+System.out.println("FAILED: Bill not saved");
+System.out.println("Kindly check 'bills' and 'bill_items' tables exists in database or not.");
+}
 
 
 
