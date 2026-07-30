@@ -12,6 +12,7 @@ import repositories.UserRepository;
 import repositories.BillRepository;
 import java.util.ArrayList;
 import java.util.List;
+import services.BillingService;
 
 public class Main
 {
@@ -160,6 +161,18 @@ else
 System.out.println("FAILED: Bill not saved");
 System.out.println("Kindly check 'bills' and 'bill_items' tables exists in database or not.");
 }
+
+
+System.out.println("DMart Testing: Billing Service");
+BillingService billingService = new BillingService();
+String customerName = "Achal Porwal";
+String cashierId = "USR-001";
+String[] scannedProducts = {"PRODUCT-101"}; 
+int[] itemQuantities = {2};
+billingService.processCheckout(customerName, cashierId, scannedProducts, itemQuantities);
+
+
+
 
 
 
