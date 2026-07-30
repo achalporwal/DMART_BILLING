@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import services.BillingService;
 import services.ReportingService;
+import services.ReturnService;
 
 public class Main
 {
@@ -182,6 +183,10 @@ ReportingService reportService = new ReportingService();
 reportService.printDailySalesReport();
 
 
+
+System.out.println("\n=== DMart Testing: Return Service ===");
+ReturnService returnService = new ReturnService();
+returnService.processReturn("PRODUCT-101", 1); 
 
 
 
