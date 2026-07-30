@@ -13,6 +13,7 @@ import repositories.BillRepository;
 import java.util.ArrayList;
 import java.util.List;
 import services.BillingService;
+import services.ReportingService;
 
 public class Main
 {
@@ -162,7 +163,10 @@ System.out.println("FAILED: Bill not saved");
 System.out.println("Kindly check 'bills' and 'bill_items' tables exists in database or not.");
 }
 
-
+System.out.println(" ");
+System.out.println(" ");
+System.out.println(" ");
+System.out.println(" ");
 System.out.println("DMart Testing: Billing Service");
 BillingService billingService = new BillingService();
 String customerName = "Achal Porwal";
@@ -172,6 +176,10 @@ int[] itemQuantities = {2};
 billingService.processCheckout(customerName, cashierId, scannedProducts, itemQuantities);
 
 
+
+System.out.println("\n=== DMart Testing: Daily Report ===");
+ReportingService reportService = new ReportingService();
+reportService.printDailySalesReport();
 
 
 
