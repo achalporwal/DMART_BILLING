@@ -57,6 +57,16 @@ Invoke-RestMethod -Uri "http://localhost:8080/api/checkout" -Method Post -Body '
 
 
 
+5\. Return API Test (Customer Refund)
+
+
+
+Invoke-RestMethod -Uri "http://localhost:8080/api/return" -Method Post -Body '{"productId":"PRODUCT-101", "quantity":"1"}'
+
+
+
+
+
 
 
 
@@ -118,6 +128,10 @@ Folder: src/handlers/
 4\.	CustomerHandler.java: Completed
 
 5\.	BillHandler.java: Completed
+
+6\.	ReturnHandler.java: Completed
+
+7\.	AdminReportHandler.java: 
 
 
 
