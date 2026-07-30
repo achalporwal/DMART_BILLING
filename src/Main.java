@@ -20,6 +20,7 @@ import handlers.AuthHandler;
 import com.sun.net.httpserver.HttpServer;
 import java.net.InetSocketAddress;
 import handlers.ProductHandler;
+import handlers.CustomerHandler;
 
 public class Main
 {
@@ -211,6 +212,7 @@ System.out.println("Starting DMart Web Server on Port 8080...");
 HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
 server.createContext("/api/login", new AuthHandler());
 server.createContext("/api/product", new ProductHandler());
+server.createContext("/api/customer", new CustomerHandler());
 server.setExecutor(null);
 server.start();
 System.out.println("Server started successfully!");
@@ -220,6 +222,13 @@ catch(Exception e)
 {
 System.out.println("Server failed to start: " + e.getMessage());
 }
+
+
+
+
+
+
+
 
 
 }
