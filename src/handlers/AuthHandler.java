@@ -15,7 +15,7 @@ this.userRepo = new UserRepository();
 @Override
 public void handle(HttpExchange exchange) throws IOException
 {
-System.out.println("\n--- AuthHandler: Login Request Received ---");
+System.out.println("\nAuthHandler: Login Request Received");
 if ("OPTIONS".equalsIgnoreCase(exchange.getRequestMethod()))
 {
 HandlerUtils.sendResponse(exchange, 204, "");

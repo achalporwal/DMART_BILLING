@@ -1,12 +1,29 @@
 For compile
 
-javac src/models/*.java  src/repositories/*.java src/db/*.java src/Main.java
+
+
+javac src/models/\*.java src/db/\*.java src/repositories/\*.java src/services/\*.java src/handlers/\*.java src/Main.java
+
+
+
 
 
 For run
+
+
 java -cp ".;mysql-connector-j-8.4.0.jar;src" Main
 
 
+
+
+
+Test Server
+
+Run powershell as administrator and run the following command
+
+
+
+Invoke-RestMethod -Uri "http://localhost:8080/api/login" -Method Post -Body '{"userId":"USR-001", "password":"admin123"}' 
 
 
 
@@ -34,11 +51,17 @@ Folder: src/repositories/
 
 2\.	ProductRepository.java: Completed
 
+3\.	
+
+4\.
+
+5\.
+
+
+
 
 
 Folder: src/
 
 1\.	Main.java: For testing.
-
-
 

@@ -16,6 +16,10 @@ import services.BillingService;
 import services.ReportingService;
 import services.ReturnService;
 import handlers.HandlerUtils;
+import handlers.AuthHandler;
+import com.sun.net.httpserver.HttpServer;
+import java.net.InetSocketAddress;
+
 
 public class Main
 {
@@ -198,6 +202,23 @@ String extractedPassword = handlers.HandlerUtils.extractJsonValue(dummyJsonReque
 System.out.println("Extracted User ID: " + extractedUserId);
 System.out.println("Extracted Password: " + extractedPassword);
 
+
+
+System.out.println("\n=== DMart Testing: Live Web Server (AuthHandler) ===");
+try
+{
+System.out.println("Starting DMart Web Server on Port 8080...");
+HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
+server.createContext("/api/login", new AuthHandler());
+server.setExecutor(null);
+server.start();
+System.out.println("Server started successfully!");
+System.out.println("Waiting for API requests from Postman or CMD...");
+}
+catch(Exception e)
+{
+System.out.println("Server failed to start: " + e.getMessage());
+}
 
 
 }
