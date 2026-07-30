@@ -23,11 +23,47 @@ Run powershell as administrator and run the following command
 
 
 
-Invoke-RestMethod -Uri "http://localhost:8080/api/login" -Method Post -Body '{"userId":"USR-001", "password":"admin123"}' 
+1\. Login Test (AuthHandler)
+
+
+
+Invoke-RestMethod -Uri "http://localhost:8080/api/login" -Method Post -Body '{"userId":"USR-001", "password":"admin123"}'
+
+
+
+2\. Barcode Scanner Test (ProductHandler)
+
+
+
+Invoke-RestMethod -Uri "http://localhost:8080/api/product?id=PRODUCT-101" -Method Get
+
+
+
+3\. Customer Test (CustomerHandler)
+
+
+
+Invoke-RestMethod -Uri "http://localhost:8080/api/customer?mobile=9876543210" -Method Get
+
+
+
+4\. Final Bill Generation Test (BillHandler)
+
+
+
+Invoke-RestMethod -Uri "http://localhost:8080/api/checkout" -Method Post -Body '{"customerName":"Rahul Sharma", "cashierId":"USR-001", "productIds":\["PRODUCT-101"], "quantities":\[2]}'
+
+
+
+
+
+
 
 
 
 List of Files created:
+
+
 
 Folder: src/models/
 
@@ -41,9 +77,13 @@ Folder: src/models/
 
 5\.	Bill.java: Completed
 
+
+
 Folder: src/db/
 
 1\.	DatabaseConfig.java: Completed
+
+
 
 Folder: src/repositories/
 
@@ -51,11 +91,33 @@ Folder: src/repositories/
 
 2\.	ProductRepository.java: Completed
 
-3\.	
+3\.	UserRepository.java: Completed 
 
-4\.
+4\.	BillRepository.java: Completed
 
-5\.
+
+
+Folder: src/services/ 
+
+1\.	BillingService.java: Completed
+
+2\.	ReportingService.java: Completed
+
+3\.	ReturnService.java: Completed
+
+
+
+Folder: src/handlers/ 
+
+1\.	HandlerUtils.java: Completed
+
+2\.	AuthHandler.java: Completed
+
+3\.	ProductHandler.java: Completed
+
+4\.	CustomerHandler.java: Completed
+
+5\.	BillHandler.java: Completed
 
 
 
@@ -63,5 +125,5 @@ Folder: src/repositories/
 
 Folder: src/
 
-1\.	Main.java: For testing.
+1\.	Main.java: For testing (Test execution \& Web Server boot)
 
