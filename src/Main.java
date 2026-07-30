@@ -15,6 +15,7 @@ import java.util.List;
 import services.BillingService;
 import services.ReportingService;
 import services.ReturnService;
+import handlers.HandlerUtils;
 
 public class Main
 {
@@ -187,6 +188,15 @@ reportService.printDailySalesReport();
 System.out.println("\n=== DMart Testing: Return Service ===");
 ReturnService returnService = new ReturnService();
 returnService.processReturn("PRODUCT-101", 1); 
+
+
+System.out.println("\n=== DMart Testing: HandlerUtils ===");
+String dummyJsonRequest = "{\"userId\":\"admin123\", \"password\":\"pass123\"}";
+System.out.println("Request from browser: " + dummyJsonRequest);
+String extractedUserId = handlers.HandlerUtils.extractJsonValue(dummyJsonRequest, "userId");
+String extractedPassword = handlers.HandlerUtils.extractJsonValue(dummyJsonRequest, "password");
+System.out.println("Extracted User ID: " + extractedUserId);
+System.out.println("Extracted Password: " + extractedPassword);
 
 
 
