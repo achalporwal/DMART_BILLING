@@ -23,6 +23,7 @@ import handlers.ProductHandler;
 import handlers.CustomerHandler;
 import handlers.BillHandler;
 import handlers.ReturnHandler;
+import handlers.AdminReportHandler;
 
 
 
@@ -220,6 +221,7 @@ server.createContext("/api/product", new ProductHandler());
 server.createContext("/api/customer", new CustomerHandler());
 server.createContext("/api/checkout", new BillHandler());
 server.createContext("/api/return", new ReturnHandler());
+server.createContext("/api/admin/report", new AdminReportHandler());
 server.setExecutor(null);
 server.start();
 System.out.println("Server started successfully!");
