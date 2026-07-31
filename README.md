@@ -82,6 +82,14 @@ Invoke-RestMethod -Uri "http://localhost:8080/api/customer/update" -Method Put -
 
 
 
+8\. Test DraftHandler (Bill Pause Request)
+
+
+
+Invoke-RestMethod -Uri "http://localhost:8080/api/draft" -Method Post
+
+
+
 
 
 
@@ -151,6 +159,8 @@ Folder: src/handlers/
 7\.	AdminReportHandler.java: Completed
 
 8\.	CustomerUpdateHandler.java: Completed
+
+9\.	DraftHandler.java: Completed
 
 
 
