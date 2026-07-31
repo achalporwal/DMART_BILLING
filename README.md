@@ -124,6 +124,14 @@ Invoke-RestMethod -Uri "http://localhost:8080/api/export" -Method Get
 
 
 
+13\. StockExportHandler.java (Inventory Management)
+
+
+
+Invoke-RestMethod -Uri "http://localhost:8080/api/stock/export" -Method Get
+
+
+
 
 
 
@@ -206,7 +214,9 @@ Folder: src/handlers/
 
 13\.	ExportHandler.java (General Data Export)
 
+14\.	StockExportHandler.java (Inventory Management)
 
+15\.	StaticFileHandler.java (Frontend Connectivity)
 
 
 
