@@ -28,6 +28,7 @@ import handlers.CustomerUpdateHandler;
 import handlers.DraftHandler;
 import handlers.CartSyncHandler;
 import handlers.AdminUserHandler;
+import handlers.AdminAnalyticsHandler;
 
 
 public class Main
@@ -228,6 +229,7 @@ server.createContext("/api/customer/update", new CustomerUpdateHandler());
 server.createContext("/api/draft", new DraftHandler());
 server.createContext("/api/cart/sync", new CartSyncHandler());
 server.createContext("/api/admin/user", new AdminUserHandler());
+server.createContext("/api/admin/analytics", new AdminAnalyticsHandler());
 server.setExecutor(null);
 server.start();
 System.out.println("Server started successfully!");

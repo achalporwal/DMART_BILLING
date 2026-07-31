@@ -108,6 +108,14 @@ Invoke-RestMethod -Uri "http://localhost:8080/api/admin/user" -Method Post
 
 
 
+11\. Test AdminAnalyticsHandler
+
+
+
+Invoke-RestMethod -Uri "http://localhost:8080/api/admin/analytics" -Method Get
+
+
+
 
 
 
@@ -181,6 +189,8 @@ Folder: src/handlers/
 10\.	CartSyncHandler.java (Cart Backup)
 
 11\.	AdminUserHandler.java (Cashier Management)
+
+12\.	AdminAnalyticsHandler.java (Store Analytics API)
 
 
 
