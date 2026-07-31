@@ -24,6 +24,7 @@ import handlers.CustomerHandler;
 import handlers.BillHandler;
 import handlers.ReturnHandler;
 import handlers.AdminReportHandler;
+import handlers.CustomerUpdateHandler;
 
 
 
@@ -222,6 +223,7 @@ server.createContext("/api/customer", new CustomerHandler());
 server.createContext("/api/checkout", new BillHandler());
 server.createContext("/api/return", new ReturnHandler());
 server.createContext("/api/admin/report", new AdminReportHandler());
+server.createContext("/api/customer/update", new CustomerUpdateHandler());
 server.setExecutor(null);
 server.start();
 System.out.println("Server started successfully!");
@@ -231,8 +233,6 @@ catch(Exception e)
 {
 System.out.println("Server failed to start: " + e.getMessage());
 }
-
-
 
 
 

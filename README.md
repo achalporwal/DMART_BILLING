@@ -11,6 +11,7 @@ javac src/models/\*.java src/db/\*.java src/repositories/\*.java src/services/\*
 For run
 
 
+
 java -cp ".;mysql-connector-j-8.4.0.jar;src" Main
 
 
@@ -65,6 +66,22 @@ Invoke-RestMethod -Uri "http://localhost:8080/api/return" -Method Post -Body '{"
 
 
 
+6\. Admin Report API Test (Daily Sales)
+
+
+
+Invoke-RestMethod -Uri "http://localhost:8080/api/admin/report" -Method Get
+
+
+
+7\. Customer Update API Test (Edit Details)
+
+
+
+Invoke-RestMethod -Uri "http://localhost:8080/api/customer/update" -Method Put -Body '{"mobile":"9876543210", "location":"Indore"}'
+
+
+
 
 
 
@@ -101,13 +118,13 @@ Folder: src/repositories/
 
 2\.	ProductRepository.java: Completed
 
-3\.	UserRepository.java: Completed 
+3\.	UserRepository.java: Completed
 
 4\.	BillRepository.java: Completed
 
 
 
-Folder: src/services/ 
+Folder: src/services/
 
 1\.	BillingService.java: Completed
 
@@ -117,7 +134,7 @@ Folder: src/services/
 
 
 
-Folder: src/handlers/ 
+Folder: src/handlers/
 
 1\.	HandlerUtils.java: Completed
 
@@ -131,7 +148,9 @@ Folder: src/handlers/
 
 6\.	ReturnHandler.java: Completed
 
-7\.	AdminReportHandler.java: 
+7\.	AdminReportHandler.java: Completed
+
+8\.	CustomerUpdateHandler.java: Completed
 
 
 
