@@ -100,6 +100,14 @@ Invoke-RestMethod -Uri "http://localhost:8080/api/cart/sync" -Method Post
 
 
 
+10\. Test AdminUserHandler (New Cashier Account)
+
+
+
+Invoke-RestMethod -Uri "http://localhost:8080/api/admin/user" -Method Post
+
+
+
 
 
 
@@ -169,6 +177,10 @@ Folder: src/handlers/
 8\.	CustomerUpdateHandler.java: Completed
 
 9\.	DraftHandler.java: Completed
+
+10\.	CartSyncHandler.java (Cart Backup)
+
+11\.	AdminUserHandler.java (Cashier Management)
 
 
 
