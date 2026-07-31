@@ -116,6 +116,18 @@ Invoke-RestMethod -Uri "http://localhost:8080/api/admin/analytics" -Method Get
 
 
 
+12\. ExportHandler.java (General Data Export)
+
+
+
+Invoke-RestMethod -Uri "http://localhost:8080/api/export" -Method Get
+
+
+
+
+
+
+
 
 
 
@@ -191,6 +203,8 @@ Folder: src/handlers/
 11\.	AdminUserHandler.java (Cashier Management)
 
 12\.	AdminAnalyticsHandler.java (Store Analytics API)
+
+13\.	ExportHandler.java (General Data Export)
 
 
 
