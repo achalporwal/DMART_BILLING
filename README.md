@@ -92,6 +92,14 @@ Invoke-RestMethod -Uri "http://localhost:8080/api/draft" -Method Post
 
 
 
+9\. Test CartSyncHandler (Cart Backup Request)
+
+
+
+Invoke-RestMethod -Uri "http://localhost:8080/api/cart/sync" -Method Post
+
+
+
 
 
 
