@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DMart POS - Login</title>
+<style>
+body
+{
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background-color: #f0f2f5;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+margin: 0;
+}
+.login-container
+{
+background-color: white;
+padding: 40px;
+border-radius: 10px;
+box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+text-align: center;
+width: 300px;
+}
+.login-container h2
+{
+color: #007bff;
+margin-bottom: 20px;
+}
+input
+{
+width: 90%;
+padding: 10px;
+margin: 10px 0;
+border: 1px solid #ccc;
+border-radius: 5px;
+font-size: 16px;
+}
+button
+{
+width: 97%;
+padding: 12px;
+background-color: #28a745;
+color: white;
+border: none;
+border-radius: 5px;
+font-size: 16px;
+font-weight: bold;
+cursor: pointer;
+margin-top: 15px;
+}
+button:hover
+{
+background-color: #218838;
+}
+#message
+{
+margin-top: 15px;
+font-weight: bold;
+}
+</style>
+</head>
+<body>
+<div class="login-container">
+<h2>DMart Billing System</h2>
+<input type="text" id="userId" placeholder="Cashier ID (e.g. USR-001)">
+<input type="password" id="password" placeholder="Password (e.g. admin123)">
+<button onclick="attemptLogin()">Login to POS</button>
+<p id="message"></p>
+</div>
+<script>
+async function attemptLogin()
+{
+const uid = document.getElementById('userId').value;
+const pwd = document.getElementById('password').value;
+const msgLabel = document.getElementById('message');
+msgLabel.style.color = "blue";
+msgLabel.innerText = "Verifying...";
+try
+{
+const response = await fetch('/api/login',
+{
+method: 'POST',
+body: JSON.stringify({ userId: uid, password: pwd })});
+const data = await response.json();
+if (data.status === 'success')
+{
+msgLabel.style.color = "green";
+msgLabel.innerText = "Login Successful!";
+}
+else
+{
+msgLabel.style.color = "red";
+msgLabel.innerText = "X " + data.message;
+}
+}
+catch (error)
+{
+msgLabel.style.color = "red";
+msgLabel.innerText = "Server not responding!";
+}
+}
+</script>
+
+
+</body>
+</html>
